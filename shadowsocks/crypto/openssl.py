@@ -63,8 +63,8 @@ def load_openssl(crypto_path=None):
     libcrypto.EVP_CipherFinal_ex.argtypes = (c_void_p, c_void_p, c_void_p)
 
     try:
-        libcrypto.EVP_CIPHER_CTX_cleanup.argtypes = (c_void_p,)
-        ctx_cleanup = libcrypto.EVP_CIPHER_CTX_cleanup
+        libcrypto.EVP_CIPHER_CTX_reset.argtypes = (c_void_p,)
+        ctx_cleanup = libcrypto.EVP_CIPHER_CTX_reset
     except AttributeError:
         libcrypto.EVP_CIPHER_CTX_reset.argtypes = (c_void_p,)
         ctx_cleanup = libcrypto.EVP_CIPHER_CTX_reset
